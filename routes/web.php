@@ -20,3 +20,6 @@ Route::get('/test/db', function()
     //
     return App\User::all();
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
