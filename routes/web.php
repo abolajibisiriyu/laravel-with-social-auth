@@ -18,5 +18,5 @@ Route::get('/', function () {
 Route::get('/test/db', function()
 {
     //
-    return User::all();
+    return App\User::all();
 });
