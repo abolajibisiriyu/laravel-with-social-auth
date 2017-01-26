@@ -8,7 +8,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-use Request;
+use Illuminate\Http\Request;
+
 use Auth;
 
 use Socialite;
