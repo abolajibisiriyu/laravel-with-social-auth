@@ -96,7 +96,7 @@ class RegisterController extends Controller
         if(!$socialProvider){ // create new user and social provider
             $user = User::firstOrCreate(
                 ['email' => $socialUser->getEmail()],
-                ['name' => $socialUser->getName(), 'password' => null]
+                ['name' => $socialUser->getName(), 'password' => bcrypt(str_random(16))] // create random password, because password field is not nullable
             );
 
             $user->socialProviders->create([
