@@ -15,11 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test/db', function()
-{
+Route::get('/test/db', function(){
     //
     return App\User::all();
 });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
