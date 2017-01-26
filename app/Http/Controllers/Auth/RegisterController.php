@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\SocialProvider;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+
+use Request;
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -67,5 +71,44 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    public function handleProviderCallback(Request $request, $provider)
+    {
+        try // for if the user rejects authentication
+        {
+            $socialUser = Socialite::driver($provider)->user();
+        }catch(\Exception $e){
+            $request->session()->flash('status', $provider.' authentication was denied');
+            return redirect('login'); // return to login page with status
+        }
+
+        // check for existing entry in social provider table
+        $socialProvider = SocialProvider::where('provider_id', $socialUser->getId())->first();
+
+        if(!$socialProvider){ // create new user and social provider
+            $user = User::firstOrCreate(
+                ['email' => $socialUser->getEmail()],
+                ['name' => $socialUser->getName(), 'password' => null]
+            );
+
+            $user->socialProviders->create([
+                'provider' => $provider,
+                'provider_id' => $socialUser->getId()
+            ]);
+        }else{
+            $user = $socialProvider->user; // return existing user
+        }
+
+        // log user in
+        Auth::login($user);
+
+        return redirect($this->redirectTo);
+        
     }
 }
