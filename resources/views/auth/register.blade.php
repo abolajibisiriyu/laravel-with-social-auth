@@ -67,6 +67,17 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="col-sm-12">
+                            <div class="col-sm-4">
+                                <a href="{{url('auth/facebook')}}" class="btn btn-success"><span class="fa fa-facebook"></span> Sign Up with Facebook</a>
+                            </div>
+                            <div class="col-sm-4">
+                                <a href="{{url('auth/twitter')}}" class="btn btn-primary"><span class="fa fa-twitter"></span> Sign Up with Twitter</a>
+                            </div>
+                            <div class="col-sm-4">
+                                <a href="{{url('auth/google')}}" class="btn btn-danger"><span class="fa fa-google"></span> Sign Up with Google</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
