@@ -8,6 +8,8 @@ class SocialProvider extends Model
 {
     //
 
+    protected $fillable = ['provider_id', 'provider', 'user_id'];
+
     public function user()
     {
         return $this->belongsTo(USer::class);
