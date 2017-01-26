@@ -87,4 +87,4 @@ Thank You.
 
 * * *
 
-This is licensed under the MIT License (MIT). Please see [License File](https://github.com/abolajibisiriyu/laravel-with-social-auth/blob/master/LICENSE.md) for more information.
+This is licensed under the MIT License (MIT). Please see [License File](https://github.com/abolajibisiriyu/laravel-with-social-auth/blob/github/LICENSE.md) for more information.
