@@ -36,9 +36,21 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '1647641958870393', // your app id
-        'client_secret' => '3325095ea8470664baabbd488357d3c1', // your app secret
-        'redirect' => 'http://laravel-app-with-social-auth.herokuapp.com/auth/facebook/callback',
+        'client_id' => env('FACEBOOK_APP_ID'), // your app id
+        'client_secret' => env('FACEBOOK_APP_SECRET'), // your app secret
+        'redirect' => 'http://laravel.com/callback',
+    ],
+
+    'twitter' => [
+        'client_id' => env('TWITTER_APP_ID'), // your app id
+        'client_secret' => env('TWITTER_APP_SECRET'), // your app secret
+        'redirect' => 'http://laravel.com/callback',
+    ],
+
+    'google' => [
+        'client_id' => env('GOOGLE_APP_ID'), // your app id
+        'client_secret' => env('GOOGLE_APP_SECRET'), // your app secret
+        'redirect' => 'http://laravel.com/callback',
     ],
 
 ];
