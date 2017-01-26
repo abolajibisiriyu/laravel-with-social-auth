@@ -100,7 +100,7 @@ class RegisterController extends Controller
                 ['name' => $socialUser->getName(), 'password' => bcrypt(str_random(16))] // create random password, because password field is not nullable
             );
 
-            $user->socialProviders->create([
+            $user->socialProviders()->create([
                 'provider' => $provider,
                 'provider_id' => $socialUser->getId()
             ]);
