@@ -11,6 +11,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Request;
 use Auth;
 
+use Socialite;
+
 class RegisterController extends Controller
 {
     /*
