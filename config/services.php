@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id' => '1647641958870393', // your app id
+        'client_secret' => '3325095ea8470664baabbd488357d3c1', // your app secret
+        'redirect' => 'http://laravel-app-with-social-auth.herokuapp.com/auth/facebook/callback',
+    ],
+
 ];
