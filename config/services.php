@@ -38,19 +38,19 @@ return [
     'facebook' => [
         'client_id' => env('FACEBOOK_APP_ID'), // your app id
         'client_secret' => env('FACEBOOK_APP_SECRET'), // your app secret
-        'redirect' => 'http://laravel.com/callback',
+        'redirect' => env('FACEBOOK_APP_REDIRECT'),
     ],
 
     'twitter' => [
         'client_id' => env('TWITTER_APP_ID'), // your app id
         'client_secret' => env('TWITTER_APP_SECRET'), // your app secret
-        'redirect' => 'http://laravel.com/callback',
+        'redirect' => env('TWITTER_APP_REDIRECT'),
     ],
 
     'google' => [
         'client_id' => env('GOOGLE_APP_ID'), // your app id
         'client_secret' => env('GOOGLE_APP_SECRET'), // your app secret
-        'redirect' => 'http://laravel.com/callback',
+        'redirect' => env('GOOGLE_APP_REDIRECT'),
     ],
 
 ];
